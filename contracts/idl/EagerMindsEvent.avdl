@@ -1,0 +1,13 @@
+@namespace("tech.eagerminds.hotel.availability.search.domain.avro")
+protocol EagerMindsEventProtocol {
+
+	enum EventType { CREATE, UPDATE, UPSERT, DELETE, TIMER }
+
+	record EventMetadata {
+	    string dateCreated;
+		union { null, string } origin = null;
+		union { null, string } traceId = null;
+		union { null, string } user = null;
+	}
+
+}

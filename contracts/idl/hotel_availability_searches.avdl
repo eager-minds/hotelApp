@@ -1,0 +1,14 @@
+@namespace("tech.eagerminds.hotel.availability.search.domain.avro")
+protocol HotelAvailabilitySearch {
+  import idl "AvailabilitySearch.avdl";
+  import idl "EagerMindsEvent.avdl";
+
+  record AvailabilitySearchKey {
+  	string id;
+  }
+
+  record AvailabilitySearchValue {
+  	AvailabilitySearch entity;
+  	union { null, array<EventMetadata> } metadata = null;
+  }
+}

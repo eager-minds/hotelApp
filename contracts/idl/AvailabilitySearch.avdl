@@ -1,0 +1,9 @@
+@namespace("tech.eagerminds.hotel.availability.search.domain.avro")
+protocol AvailabilitySearchProtocol {
+	record AvailabilitySearch {
+		union { null, string} hotelId = null;
+		union { null, string} checkIn = null;
+		union { null, string} checkOut = null;
+		union { null, array<int> } ages = null;
+	}
+}
