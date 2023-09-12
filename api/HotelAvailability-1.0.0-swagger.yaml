@@ -1,0 +1,127 @@
+---
+openapi: 3.0.0
+info:
+  title: Hotel Availability Search API
+  description: This is an API to search hotel availability
+  contact:
+    email: javier@eagerminds.tech
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/JAVIER_6/HotelAvailability/1.0.0
+    description: SwaggerHub API Auto Mocking
+  - url: http://localhost:8080
+    description: Localhost
+tags:
+  - name: post
+    description: Post Operations
+  - name: get
+    description: Get Operations
+paths:
+  /search:
+    get:
+      tags:
+        - get
+      summary: Retrieve availability search and count of similar searches
+      description: By passing a searchId, you can retrieve count of similar searches.
+      operationId: retrieveSearch
+      parameters:
+        - name: searchId
+          in: query
+          description: pass an optional search string for looking up inventory
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchCountItem'
+        "400":
+          description: bad input parameter
+        "404":
+          description: not found
+      x-swagger-router-controller: Get
+    post:
+      tags:
+        - post
+      summary: Save new availability search
+      description: Save a new availability search
+      operationId: createSearch
+      requestBody:
+        description: Search item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchItem'
+      responses:
+        "201":
+          description: search item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchId'
+          links:
+            RetrieveSearchBySearchId:
+              operationId: retrieveSearch
+              parameters:
+                searchId: $response.body#/searchId
+              description: |
+                The `searchId` value returned in the response can be used as the `searchId` parameter in `GET /search`.
+        "400":
+          description: invalid input, object invalid
+      x-swagger-router-controller: Post
+components:
+  schemas:
+    SearchItem:
+      type: object
+      properties:
+        hotelId:
+          type: string
+          example: 1234aBc
+        checkIn:
+          pattern: ^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-\d{4}$
+          type: string
+          example: 26-02-2023
+        checkOut:
+          pattern: ^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-\d{4}$
+          type: string
+          example: 29-02-2023
+        ages:
+          type: array
+          example:
+            - 30
+            - 29
+            - 1
+            - 3
+          items:
+            type: integer
+            example: 30
+    SearchCountItem:
+      required:
+        - count
+        - search
+        - searchId
+      type: object
+      properties:
+        searchId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        search:
+          $ref: '#/components/schemas/SearchItem'
+        count:
+          type: integer
+          example: 100
+    SearchId:
+      type: object
+      properties:
+        searchId:
+          type: string
+          description: ID of the created search.
+          format: uuid
