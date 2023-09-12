@@ -346,3 +346,6 @@ gradle-app.setting
 ### Gradle Patch ###
 # Java heap dump
 *.hprof
+
+### Archimate ###
+!**/*.archimate.bak
