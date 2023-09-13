@@ -3,8 +3,8 @@
   <folder name="Strategy" id="id-fe494b97864f4a67802541dc748006bf" type="strategy"/>
   <folder name="Business" id="id-d22056c36f6747e4977bc6ce169eb66a" type="business"/>
   <folder name="Application" id="id-1fd786774f7545a49af67447e12bba69" type="application">
-    <element xsi:type="archimate:ApplicationService" name="search-api (get)" id="id-b617a97d86524bec8df417a4eeaff424"/>
-    <element xsi:type="archimate:ApplicationService" name="search-api (post)" id="id-b9a4d22421064344b457e32980bad087"/>
+    <element xsi:type="archimate:ApplicationService" name="search-get-source-api" id="id-b617a97d86524bec8df417a4eeaff424"/>
+    <element xsi:type="archimate:ApplicationService" name="search-post-source-api" id="id-b9a4d22421064344b457e32980bad087"/>
     <element xsi:type="archimate:ApplicationService" name="search-sink-persist" id="id-393110ebc1d741e2a5bd9fe96121e630"/>
   </folder>
   <folder name="Technology &amp; Physical" id="id-7582e9462a9a4df4bb19713e89acfe80" type="technology">
