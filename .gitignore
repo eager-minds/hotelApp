@@ -348,4 +348,4 @@ gradle-app.setting
 *.hprof
 
 ### Archimate ###
-!**/*.archimate.bak
+**/*.archimate.bak
