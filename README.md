@@ -63,8 +63,14 @@ $ ./runEnv.sh
 $ ./stopEnv.sh
 ```
 
+### Modules
+- [node-js-swagger-mock-server](nodejs-swagger-mock-server) -> [README.md](nodejs-swagger-mock-server/README.md)
+
 ### Usage
-To use this project `...`
+To run Swagger Mock Server see [README.md](nodejs-swagger-mock-server/README.md).
+
+You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to postman API.
+
 
 ### Features
 - save searches
@@ -75,13 +81,12 @@ To use this project `...`
 **In Progress**
 
 ### To Do
-1. OpenApi nodejs mock server
-2. Acceptance Criteria
-3. BDD Gherkin Features
-4. module search-post-api
-5. module search-get-api
-6. module search-sink-persist
-7. performance charts
+1. Acceptance Criteria
+2. BDD Gherkin Features
+3. module search-post-api
+4. module search-get-api
+5. module search-sink-persist
+6. performance charts
 
 ### About Owner
 Created by:
