@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EventType",
+  "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
+  "symbols" : [ "CREATE", "UPDATE", "UPSERT", "DELETE", "TIMER" ]
+}

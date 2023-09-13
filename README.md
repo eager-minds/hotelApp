@@ -43,10 +43,24 @@ Project is created with technology:version
 ...
 
 ### Setup
-To run this project:
-
+`runEnv.sh` script:
+- Run docker environment with containers below:
+  - Kafka
+  - Schema-Registry
+  - MongoDB
+```
+$ ./runEnv.sh
 ```
 
+`registry.sh` script:
+- generates avros from idls
+- set topics compatibility to `FULL_TRANSITIVE`
+- register topics on schema-registry
+
+`stopEnv.sh` script:
+- Stops docker environment
+```
+$ ./stopEnv.sh
 ```
 
 ### Usage

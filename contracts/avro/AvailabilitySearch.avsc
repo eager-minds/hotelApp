@@ -1,0 +1,25 @@
+{
+  "type" : "record",
+  "name" : "AvailabilitySearch",
+  "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
+  "fields" : [ {
+    "name" : "hotelId",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "checkIn",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "checkOut",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "ages",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : "int"
+    } ],
+    "default" : null
+  } ]
+}

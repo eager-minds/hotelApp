@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "AvailabilitySearchKey",
+  "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
+}
