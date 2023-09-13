@@ -31,6 +31,7 @@ Hotel application to get availability.
 ### Technologies
 Project is created with technology:version
 - OpenApi:3.0.0
+- Docker-compose:3.8
 - Kafka:
 - Schema-Registry:
 - MongoDB:
@@ -60,33 +61,32 @@ To use this project `...`
 **In Progress**
 
 ### To Do
-1. Docker Composes with Zookeeper, Kafka, Schema-Registry and MongoDB
-2. OpenApi nodejs mock server
-3. Acceptance Criteria
-4. BDD Gherkin Features
-5. module search-post-api
-6. module search-get-api
-7. module search-sink-persist
-8. performance charts
+1. OpenApi nodejs mock server
+2. Acceptance Criteria
+3. BDD Gherkin Features
+4. module search-post-api
+5. module search-get-api
+6. module search-sink-persist
+7. performance charts
 
 ### About Owner
 Created by:
 - [@javierddn](https://www.linkedin.com/in/javierdediegonavarro)
-    - Github: https://github.com/javierddn
-    - LinkedIn: https://www.linkedin.com/in/javierdediegonavarro
-    - DockerHub: https://hub.docker.com/u/javierddn
-    - Bitbucket: https://bitbucket.org/javierddn
-    - Gitlab: https://gitlab.com/javierddn
-    - TravisCI: https://app.travis-ci.com/github/javierddn
-    - CircleCI: https://app.circleci.com/pipelines/github/javierddn
+  - Github: https://github.com/javierddn
+  - LinkedIn: https://www.linkedin.com/in/javierdediegonavarro
+  - DockerHub: https://hub.docker.com/u/javierddn
+  - Bitbucket: https://bitbucket.org/javierddn
+  - Gitlab: https://gitlab.com/javierddn
+  - TravisCI: https://app.travis-ci.com/github/javierddn
+  - CircleCI: https://app.circleci.com/pipelines/github/javierddn
 
 - [@eagerminds](https://www.linkedin.com/company/eager-minds)
-    - Github: https://github.com/eager-minds
-    - LinkedIn: https://www.linkedin.com/company/eager-minds
-    - DockerHub: https://hub.docker.com/u/eagerminds
-    - Bitbucket: https://bitbucket.org/eagerminds
-    - TravisCI: https://app.travis-ci.com/github/eagerminds-javier
-    - CircleCI: https://app.circleci.com/pipelines/github/eagerminds-javier
+  - Github: https://github.com/eager-minds
+  - LinkedIn: https://www.linkedin.com/company/eager-minds
+  - DockerHub: https://hub.docker.com/u/eagerminds
+  - Bitbucket: https://bitbucket.org/eagerminds
+  - TravisCI: https://app.travis-ci.com/github/eagerminds-javier
+  - CircleCI: https://app.circleci.com/pipelines/github/eagerminds-javier
 
 📩 Feel free to contact me! 📩
 
