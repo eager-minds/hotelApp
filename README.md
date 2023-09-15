@@ -9,40 +9,42 @@
 - [Setup](#setup)
 - [Usage](#usage)
 - [Features](#features)
+- [Questions](#questions)
 - [Project Status](#project-status)
 - [To Do](#to-do)
 - [About Owner](#about-owner)
 - [License](#license)
 
-### General info
+## General info
 Hotel application to get availability.
 
 ![Availability Domain](archimate/images/availabilitySearchView.bmp)
 
-### Domains
+## Domains
 - availability
 
-### Methodologies
+## Methodologies
 - Contract first
 - Api first
 - BDD
 - TDD
 
-### Technologies
+## Technologies
 Project is created with technology:version
 - OpenApi:3.0.0
 - Docker-compose:3.8
 - Kafka:
+- Zookeeper:
 - Schema-Registry:
 - MongoDB:
 - Java:17
 - Spring:
 - Archimate
 
-### Screenshots
+## Screenshots
 ...
 
-### Setup
+## Setup
 `runEnv.sh` script:
 - Run docker environment with containers below:
   - Kafka
@@ -63,32 +65,51 @@ $ ./runEnv.sh
 $ ./stopEnv.sh
 ```
 
-### Modules
+## Modules
 - [node-js-swagger-mock-server](nodejs-swagger-mock-server) -> [README.md](nodejs-swagger-mock-server/README.md)
 
-### Usage
+## Usage
 To run Swagger Mock Server see [README.md](nodejs-swagger-mock-server/README.md).
 
 You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to postman API.
 
-
-### Features
+## Features
 - save searches
-- retrieve searches by id
-- get count of similar searches
+  - when POST /search with "search" json body
+    - returns generated UUID searchId
+    - produce "search" message onto `hotel_availability_searches` topic
+- persist searches into MongoDb
+  - when there is new messages on `hotel_availability_searches` then persists them to MongoDb
+- retrieve searches by id with count of similar searches
 
-### Project Status
+## Questions
+- save searches
+  - fields validation:
+    - which fields are nullable?
+    - hotelId format
+    - can be checkIn after checkOut?
+    - max and min ages
+- persist searches into MongoDb
+- retrieve searches by id with count of similar searches:
+  - Endpoint `GET /search`
+    - can be 'searchId' pathParam instead queryParam?
+    - if 'searchId' not exists returns 404 error or 'search' field empty with 'count' field as 0?
+
+## Project Status
 **In Progress**
 
-### To Do
+## To Do
 1. Acceptance Criteria
 2. BDD Gherkin Features
 3. module search-post-api
-4. module search-get-api
+4. 
+5. module search-get-api
 5. module search-sink-persist
 6. performance charts
+7. Gradle
+8. Quarkus y Kubernetes
 
-### About Owner
+## About Owner
 Created by:
 - [@javierddn](https://www.linkedin.com/in/javierdediegonavarro)
   - Github: https://github.com/javierddn
@@ -110,7 +131,6 @@ Created by:
 📩 Feel free to contact me! 📩
 
 ## [License](LICENSE)
-
 ### NO_LICENSE
 
 This project and code can not be used to commercial purposes.<br>
