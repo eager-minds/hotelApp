@@ -211,11 +211,11 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 
 ## To Do
 
-1. microservices archetypes
+1. archetypes parents
     1. kafka-sink-persist
     2. kafka-source-api
     3. mongodb-api
-2. archetypes parents
+2. microservices archetypes
     1. kafka-sink-persist
     2. kafka-source-api
     3. mongodb-api
@@ -228,11 +228,16 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 5. module search-sink-persist
     1. acceptance tests with cucumber
     2. module code
-6. versioning
+6. microservices initializers
+    1. kafka
+    2. api
+    3. mongodb
 7. Gradle
-8. Quarkus & Kubernetes
-9. Sonarqube validation (docker/server)
+8. Sonarqube validation (docker/server)
+9. performance audit
 10. performance charts
+11. versioning
+12. Quarkus & Kubernetes
 
 ## About Owner
 
