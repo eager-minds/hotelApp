@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker-compose -f ./composes/docker-compose-mongo.yml down
-docker-compose -f ./composes/docker-compose-kafka.yml down
+docker-compose -p mongodb-stack down
+docker-compose -p kafka-stack down
 docker network rm eagerminds_hotel
