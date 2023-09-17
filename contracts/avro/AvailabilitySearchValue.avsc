@@ -3,6 +3,9 @@
   "name" : "AvailabilitySearchValue",
   "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
   "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  }, {
     "name" : "entity",
     "type" : {
       "type" : "record",
