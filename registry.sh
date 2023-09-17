@@ -14,39 +14,47 @@ if [ ! -d ${TOOLS} ] || [ ! -f ${TOOLS}/${AVRO_TOOL_JAR} ]; then
   curl -L -o ${TOOLS}/${AVRO_TOOL_JAR} ${AVRO_TOOL_URL}
 fi
 TOPICS=(
-hotel_availability_searches-key
-hotel_availability_searches-value
+  hotel_availability_searches-key
+  hotel_availability_searches-value
 )
 
+echo
+echo "Setting up SCHEMA-REGISTRY..."
+sleep 1.5
+
+echo
+echo "#############################################"
+echo "Generated avros at ./${CONTRACTS_AVRO_PATH}"
+echo "#############################################"
 for topic in "${TOPICS[@]}"; do
-  echo "Set compatibility to topic ${topic}:"
+  printf "Setting compatibility to topic %s:" "$topic"
   curl -X PUT -H "${CONTENT_TYPE_SCHEMA_REGISTRY_JSON}" \
-  --data "${COMPATIBILITY}" \
-  "${SCHEMA_REGISTRY_HOST}/config/${topic}"
+    --data "${COMPATIBILITY}" \
+    "${SCHEMA_REGISTRY_HOST}/config/${topic}"
   echo
 done
 
 echo
-echo "###############"
-echo "Generate avros"
-echo "###############"
+echo "#############################################"
+echo "Generated avros at ./${CONTRACTS_AVRO_PATH}"
+echo "#############################################"
 java -jar ${TOOLS}/${AVRO_TOOL_JAR} idl2schemata \
-${CONTRACTS_IDL_PATH}/hotel_availability_searches.avdl \
-${CONTRACTS_AVRO_PATH}
+  ${CONTRACTS_IDL_PATH}/hotel_availability_searches.avdl \
+  ${CONTRACTS_AVRO_PATH}
 ls ${CONTRACTS_AVRO_PATH}
 
 payloadKey=$(jq tostring ${CONTRACTS_AVRO_PATH}/AvailabilitySearchKey.avsc)
 payloadValue=$(jq tostring ${CONTRACTS_AVRO_PATH}/AvailabilitySearchValue.avsc)
 
 echo
-echo "###############"
+echo "#############################################"
 echo "Register topics to schema-registry:"
-echo "###############"
-echo "hotel_availability_searches-key"
+echo "#############################################"
+printf "hotel_availability_searches-key: "
 curl -X POST -H "${CONTENT_TYPE_SCHEMA_REGISTRY_JSON}" -d"{\"schema\":${payloadKey}}" \
-http://localhost:8081/subjects/hotel_availability_searches-key/versions
+  http://localhost:8081/subjects/hotel_availability_searches-key/versions
 echo
-echo "hotel_availability_searches-value"
+printf "hotel_availability_searches-value: "
 curl -X POST -H "${CONTENT_TYPE_SCHEMA_REGISTRY_JSON}" -d"{\"schema\":${payloadValue}}" \
-http://localhost:8081/subjects/hotel_availability_searches-value/versions
+  http://localhost:8081/subjects/hotel_availability_searches-value/versions
 echo
