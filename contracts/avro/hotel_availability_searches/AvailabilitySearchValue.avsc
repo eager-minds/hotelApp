@@ -3,9 +3,6 @@
   "name" : "AvailabilitySearchValue",
   "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
   "fields" : [ {
-    "name" : "id",
-    "type" : "string"
-  }, {
     "name" : "entity",
     "type" : {
       "type" : "record",
@@ -38,6 +35,7 @@
       "items" : {
         "type" : "record",
         "name" : "EventMetadata",
+        "namespace" : "tech.eagerminds.core.kafka.domain.avro",
         "fields" : [ {
           "name" : "dateCreated",
           "type" : "string"

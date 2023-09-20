@@ -1,7 +1,7 @@
 {
   "type" : "record",
   "name" : "EventMetadata",
-  "namespace" : "tech.eagerminds.hotel.availability.search.domain.avro",
+  "namespace" : "tech.eagerminds.core.kafka.domain.avro",
   "fields" : [ {
     "name" : "dateCreated",
     "type" : "string"

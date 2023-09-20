@@ -1,13 +1,15 @@
-@namespace("tech.eagerminds.hotel.availability.search.domain.avro")
+@namespace("tech.eagerminds.core.kafka.domain.avro")
 protocol EagerMindsEventProtocol {
 
-	enum EventType { CREATE, UPDATE, UPSERT, DELETE, TIMER }
+	enum EventType {
+		CREATE, UPDATE, UPSERT, DELETE, TIMER
+	}
 
 	record EventMetadata {
-	    string dateCreated;
-		union { null, string } origin = null;
-		union { null, string } traceId = null;
-		union { null, string } user = null;
+		string dateCreated;
+		string? origin = null;
+		string? traceId = null;
+		string? user = null;
 	}
 
 }
