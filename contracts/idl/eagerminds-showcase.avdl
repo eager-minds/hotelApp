@@ -1,0 +1,14 @@
+@namespace("tech.eagerminds.showcase.domain.avro")
+protocol EagerMindsShowcase {
+	import idl "EagerMindsEvent.avdl";
+	import idl "EagerMindsShowcase.avdl";
+
+	record EagerMindsShowcaseKey {
+		string id;
+	}
+
+	record EagerMindsShowcaseValue {
+		EagerMindsShowcase entity;
+		union{null, array<tech.eagerminds.core.kafka.domain.avro.EventMetadata>} metadata = null;
+	}
+}

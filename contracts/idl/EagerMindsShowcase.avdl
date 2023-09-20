@@ -1,0 +1,8 @@
+@namespace("tech.eagerminds.showcase.domain.avro")
+protocol EagerMindsShowcaseProtocol {
+	record EagerMindsShowcase {
+		string? myString = null;
+		int? myInt = null;
+		union { null, array<int> } myIntArray = null;
+	}
+}

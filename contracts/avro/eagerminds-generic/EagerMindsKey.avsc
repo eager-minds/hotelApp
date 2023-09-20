@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "EagerMindsKey",
+  "namespace" : "tech.eagerminds.core.kafka.domain.avro",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
+}

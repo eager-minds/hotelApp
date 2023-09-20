@@ -1,0 +1,21 @@
+{
+  "type" : "record",
+  "name" : "EagerMindsShowcase",
+  "namespace" : "tech.eagerminds.showcase.domain.avro",
+  "fields" : [ {
+    "name" : "myString",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "myInt",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "myIntArray",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : "int"
+    } ],
+    "default" : null
+  } ]
+}

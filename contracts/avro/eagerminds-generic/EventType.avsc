@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EventType",
+  "namespace" : "tech.eagerminds.core.kafka.domain.avro",
+  "symbols" : [ "CREATE", "UPDATE", "UPSERT", "DELETE", "TIMER" ]
+}

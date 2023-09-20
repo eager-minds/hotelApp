@@ -14,6 +14,8 @@ if [ ! -d ${TOOLS} ] || [ ! -f ${TOOLS}/${AVRO_TOOL_JAR} ]; then
   curl -L -o ${TOOLS}/${AVRO_TOOL_JAR} ${AVRO_TOOL_URL}
 fi
 TOPICS=(
+  eagerminds-generic
+  eagerminds-showcase
   hotel_availability_searches
 )
 

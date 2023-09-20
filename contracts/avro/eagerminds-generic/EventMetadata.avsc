@@ -1,0 +1,21 @@
+{
+  "type" : "record",
+  "name" : "EventMetadata",
+  "namespace" : "tech.eagerminds.core.kafka.domain.avro",
+  "fields" : [ {
+    "name" : "dateCreated",
+    "type" : "string"
+  }, {
+    "name" : "origin",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "traceId",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "user",
+    "type" : [ "null", "string" ],
+    "default" : null
+  } ]
+}

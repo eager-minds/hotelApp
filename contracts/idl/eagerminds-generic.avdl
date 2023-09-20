@@ -1,0 +1,13 @@
+@namespace("tech.eagerminds.core.kafka.domain.avro")
+protocol EagerMindsGeneric {
+	import idl "EagerMindsEvent.avdl";
+
+	record EagerMindsKey {
+		string id;
+	}
+
+	record EagerMindsValue {
+		string entity;
+		union{null, array<EventMetadata>} metadata = null;
+	}
+}

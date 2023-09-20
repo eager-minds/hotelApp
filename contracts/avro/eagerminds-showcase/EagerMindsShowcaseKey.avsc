@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "EagerMindsShowcaseKey",
+  "namespace" : "tech.eagerminds.showcase.domain.avro",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
+}
