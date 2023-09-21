@@ -228,16 +228,12 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 5. module search-sink-persist
     1. acceptance tests with cucumber
     2. module code
-6. microservices initializers
-    1. kafka
-    2. api
-    3. mongodb
-7. Gradle
-8. Sonarqube validation (docker/server)
-9. performance audit
-10. performance charts
-11. versioning
-12. Quarkus & Kubernetes
+6. Gradle
+7. Sonarqube validation (docker/server)
+8. performance audit
+9. performance charts
+10. versioning
+11. Quarkus & Kubernetes
 
 ## About Owner
 
