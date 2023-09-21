@@ -1,0 +1,52 @@
+logging:
+  pattern.console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint}%clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    root: info
+
+server.port: 8080
+
+spring:
+  application:
+    name: ^project.artifactId^
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  cloud:
+    stream:
+      function:
+        autodetect: false
+      default-binder: kafka
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+          function:
+      default:
+        contentType: application/*+avro
+        producer:
+          useNativeEncoding: true
+      bindings:
+        genericProducer-out-0:
+          destination: generic
+        plainProducer-out-0:
+          destination: plain
+          content-type: text/plain
+          producer:
+            use-native-encoding: false
+      kafka:
+        bootstrap-servers: localhost:9092
+        default:
+          requiredAcks: all
+          producer:
+            configuration:
+              schema.registry.url: http://localhost:8081
+              retry.backoff.ms: 100
+              max.in.flight.requests.per.connection: 1
+              key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+              value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+        binder:
+          requiredAcks: all
+          brokers: localhost
+          defaultBrokerPort: 9092
+          autoCreateTopics: false

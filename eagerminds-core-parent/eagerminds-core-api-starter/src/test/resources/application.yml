@@ -1,0 +1,13 @@
+info:
+  build:
+    version: 1.0.0-DUMMY_TEST
+    timestamp: maven.build.timestamp
+
+spring:
+  application:
+    name: eagerminds-core-starter-api-test
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always

@@ -1,0 +1,5 @@
+spring.application.name: ^project.artifactId^
+info:
+  build:
+    version: ^project.version^
+    timestamp: ^maven.build.timestamp^

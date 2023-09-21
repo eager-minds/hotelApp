@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tech.eagerminds.core</groupId>
+    <artifactId>eagerminds-core-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>eagerminds-core-kafka-producer-starter</artifactId>
+  <name>Eagerminds Core - Kafka-source Starter</name>
+  <description>Starter pom providing dependency and plugin management for microservices applications with Kafka-source
+  </description>
+  <url>https://eagerminds.tech</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Eager Minds - Javier de Diego Navarro</name>
+    <url>https://eagerminds.tech</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>javierddn</id>
+      <name>Javier de Diego Navarro</name>
+      <url>https://www.linkedin.com/in/javierdediegonavarro</url>
+      <email>javier@eagerminds.tech</email>
+      <organization>Eager Minds - Freelancer</organization>
+      <organizationUrl>https://www.linkedin.com/company/eager-minds/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <properties>
+        <githubUrl>https://github.com/javierddn</githubUrl>
+        <linkedInUrl>https://www.linkedin.com/in/javierdediegonavarro</linkedInUrl>
+        <dockerHubUrl>https://hub.docker.com/u/javierddn</dockerHubUrl>
+        <bitbucketUrl>https://bitbucket.org/javierddn</bitbucketUrl>
+        <gitlabUrl>https://gitlab.com/javierddn</gitlabUrl>
+        <travisCiUrl>https://app.travis-ci.com/github/javierddn</travisCiUrl>
+        <circleCiUrl>https://app.circleci.com/pipelines/github/javierddn</circleCiUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <!-- COMPILE Scope dependencies (alphabetically) -->
+    <!-- Eagerminds Dependencies -->
+    <dependency>
+      <groupId>tech.eagerminds.core</groupId>
+      <artifactId>eagerminds-core-kafka-library</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- spring dependencies (alphabetically) -->
+    <!-- Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Spring Cloud -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- TEST Scope dependencies (alphabetically) -->
+    <!-- Eagerminds Dependencies -->
+    <dependency>
+      <groupId>tech.eagerminds.core</groupId>
+      <artifactId>eagerminds-core-kafka-producer-test-starter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Apache Maven plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <!-- Checkstyle plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
