@@ -1,0 +1,64 @@
+logging:
+  pattern.console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint}%clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    root: info
+
+info:
+  build:
+    version: ^project.version^
+    timestamp: ^maven.build.timestamp^
+
+spring:
+  application:
+    name: ^project.artifactId^
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: password
+      database: availabilitySearch
+      port: 27017
+      host: localhost
+  cloud:
+    stream:
+      function:
+        autodetect: false
+        definition: plainConsumer;genericConsumer
+      default-binder: kafka
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+      default:
+        content-type: application/*+avro
+        consumer:
+          use-native-decoding: true
+      bindings:
+        genericConsumer-in-0:
+          destination: hotel_availability_searches
+        plainConsumer-in-0:
+          destination: plain
+          content-type: text/plain
+          consumer:
+            use-native-decoding: false
+      kafka:
+        bootstrap-servers: localhost:9092
+        default:
+          requiredAcks: all
+          consumer:
+            configuration:
+              schema.registry.url: http://localhost:8081
+              specific.avro.reader: true
+              group.id: hotel-availability-search-kafka-sink-persist
+              value.subject.name.strategy: io.confluent.kafka.serializers.subject.TopicRecordNameStrategy
+              key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+              value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        binder:
+          requiredAcks: all
+          brokers: localhost
+          defaultBrokerPort: 9092
+          autoCreateTopics: false
