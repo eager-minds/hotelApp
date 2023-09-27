@@ -1,0 +1,28 @@
+logging:
+  pattern.console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint}%clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    root: info
+
+info:
+  build:
+    version: ^project.version^
+    timestamp: ^maven.build.timestamp^
+
+server.port: 8181
+
+spring:
+  application:
+    name: ^project.artifactId^
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: password
+      database: ${entityNameLowerCamelCase}
+      port: 27017
+      host: localhost

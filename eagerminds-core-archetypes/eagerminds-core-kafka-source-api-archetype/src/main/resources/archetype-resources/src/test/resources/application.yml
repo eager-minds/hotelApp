@@ -1,0 +1,42 @@
+info:
+  build:
+    version: 1.0.0-DUMMY_TEST
+    timestamp: maven.build.timestamp
+
+spring:
+  application:
+    name: ${artifactId}-test
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  cloud:
+    stream:
+      default-binder: kafka
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+      default:
+        content-type: application/*+avro
+        producer:
+          use-native-encoding: true
+      bindings:
+        ${topicEntityNameLowerCamelCase}Producer-out-0:
+          destination: ${topicName}
+      kafka:
+        bootstrap-servers: localhost:9092
+        default:
+          requiredAcks: all
+          producer:
+            configuration:
+              schema.registry.url: mock://localhost:8081
+              retry.backoff.ms: 100
+              max.in.flight.requests.per.connection: 1
+              key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+              value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+        binder:
+          requiredAcks: all
+          brokers: localhost
+          defaultBrokerPort: 9092
+          autoCreateTopics: false

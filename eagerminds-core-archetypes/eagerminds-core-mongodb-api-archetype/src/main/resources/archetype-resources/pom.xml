@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tech.eagerminds.core</groupId>
+    <artifactId>eagerminds-core-${typology}-parent</artifactId>
+    <version>$eagermindsCoreVersion</version>
+    <relativePath>../eagerminds-core-parent/eagerminds-core-${typology}-parent/pom.xml</relativePath>
+  </parent>
+
+  <groupId>$groupId</groupId>
+  <artifactId>$artifactId</artifactId>
+  <version>$version</version>
+  <name>Eagerminds spring-boot microservice with $typology typology</name>
+  <description>Springboot microservice based on Eagerminds architecture with $typology typology</description>
+  <url>https://eagerminds.tech</url>
+
+  <properties>
+    <!-- project properties -->
+
+    <!-- java properties -->
+
+    <!-- plugin properties -->
+
+    <!-- other properties (alphabetically) -->
+
+    <!-- thirds parties dependencies properties (alphabetically) -->
+  </properties>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Eager Minds - Javier de Diego Navarro</name>
+    <url>https://eagerminds.tech</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>javierddn</id>
+      <name>Javier de Diego Navarro</name>
+      <url>https://www.linkedin.com/in/javierdediegonavarro</url>
+      <email>javier@eagerminds.tech</email>
+      <organization>Eager Minds - Freelancer</organization>
+      <organizationUrl>https://www.linkedin.com/company/eager-minds/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <properties>
+        <githubUrl>https://github.com/javierddn</githubUrl>
+        <linkedInUrl>https://www.linkedin.com/in/javierdediegonavarro</linkedInUrl>
+        <dockerHubUrl>https://hub.docker.com/u/javierddn</dockerHubUrl>
+        <bitbucketUrl>https://bitbucket.org/javierddn</bitbucketUrl>
+        <gitlabUrl>https://gitlab.com/javierddn</gitlabUrl>
+        <travisCiUrl>https://app.travis-ci.com/github/javierddn</travisCiUrl>
+        <circleCiUrl>https://app.circleci.com/pipelines/github/javierddn</circleCiUrl>
+      </properties>
+    </developer>
+  </developers>
+</project>

@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tech.eagerminds.core</groupId>
+  <artifactId>eagerminds-core-archetypes</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Eagerminds Core - Archetypes Parent</name>
+  <description>Parent pom providing dependency and plugin management for Eagerminds archetypes</description>
+  <url>https://eagerminds.tech</url>
+
+  <properties>
+    <!-- project properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- java properties -->
+    <java.version>17</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
+    <!-- plugin properties -->
+
+    <!-- other properties (alphabetically) -->
+
+    <!-- thirds parties dependencies properties (alphabetically) -->
+    <maven-archetype-packaging.version>3.2.1</maven-archetype-packaging.version>
+    <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
+  </properties>
+
+  <modules>
+    <module>eagerminds-core-mongodb-api-archetype</module>
+    <module>eagerminds-core-kafka-source-api-archetype</module>
+    <module>eagerminds-core-kafka-sink-persist-archetype</module>
+  </modules>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Eager Minds - Javier de Diego Navarro</name>
+    <url>https://eagerminds.tech</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>javierddn</id>
+      <name>Javier de Diego Navarro</name>
+      <url>https://www.linkedin.com/in/javierdediegonavarro</url>
+      <email>javier@eagerminds.tech</email>
+      <organization>Eager Minds - Freelancer</organization>
+      <organizationUrl>https://www.linkedin.com/company/eager-minds/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <properties>
+        <githubUrl>https://github.com/javierddn</githubUrl>
+        <linkedInUrl>https://www.linkedin.com/in/javierdediegonavarro</linkedInUrl>
+        <dockerHubUrl>https://hub.docker.com/u/javierddn</dockerHubUrl>
+        <bitbucketUrl>https://bitbucket.org/javierddn</bitbucketUrl>
+        <gitlabUrl>https://gitlab.com/javierddn</gitlabUrl>
+        <travisCiUrl>https://app.travis-ci.com/github/javierddn</travisCiUrl>
+        <circleCiUrl>https://app.circleci.com/pipelines/github/javierddn</circleCiUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>${maven-archetype-packaging.version}</version>
+      </extension>
+    </extensions>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
+          <configuration>
+            <addDefaultExcludes>false</addDefaultExcludes>
+            <includeEmptyDirs>true</includeEmptyDirs>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

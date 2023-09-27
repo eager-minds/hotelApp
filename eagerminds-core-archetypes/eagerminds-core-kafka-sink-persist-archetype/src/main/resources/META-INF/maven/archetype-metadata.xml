@@ -1,0 +1,86 @@
+<archetype-descriptor
+  xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+  name="eagermindsCoreArchetypeKafkaSinkPersistProfile">
+
+  <requiredProperties>
+    <requiredProperty key="typology">
+      <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+      <defaultValue>kafka-sink-persist</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="eagermindsCoreVersion">
+      <validationRegex>^\d+(\.\d+){0,2}(\-SNAPSHOT)?$</validationRegex>
+      <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="groupId">
+      <defaultValue>tech.eagerminds</defaultValue>
+      <validationRegex>^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$</validationRegex>
+    </requiredProperty>
+    <requiredProperty key="artifactId">
+      <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+      <defaultValue>eagerminds-${typology}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="artifactIdCamelCase">
+      <defaultValue>
+        ${package.getClass().forName("org.apache.velocity.util.StringUtils").removeAndHump("$artifactId", "-")}
+      </defaultValue>
+    </requiredProperty>
+    <requiredProperty key="version">
+      <validationRegex>^\d+(\.\d+){0,2}(\-SNAPSHOT)?$</validationRegex>
+      <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="topicName">
+      <defaultValue>eagerminds-.*</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="topicEntityName">
+      <defaultValue>
+        ${package.getClass().forName("org.apache.velocity.util.StringUtils").removeAndHump("$topicName", "-")}
+      </defaultValue>
+    </requiredProperty>
+    <requiredProperty key="topicEntityNameLowerCamelCase">
+      <defaultValue>
+        ${topicEntityName.substring(0,1).toLowerCase()}${topicEntityName.substring(1)}
+      </defaultValue>
+    </requiredProperty>
+    <requiredProperty key="schemaRegistryTopicsPattern">
+      <defaultValue>${topicName}-(key|value)</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+    </fileSet>
+    <!-- .gitignore -->
+    <fileSet>
+      <directory/>
+      <includes>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
+    <!-- maven wrapper without jar -->
+    <fileSet>
+      <directory/>
+      <includes>
+        <include>.mvn/wrapper/maven-wrapper.properties</include>
+        <include>mvnw</include>
+        <include>mvnw.cmd</include>
+      </includes>
+    </fileSet>
+    <!-- checkstyle -->
+    <fileSet>
+      <directory/>
+      <includes>
+        <include>checkstyle-checks.xml</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

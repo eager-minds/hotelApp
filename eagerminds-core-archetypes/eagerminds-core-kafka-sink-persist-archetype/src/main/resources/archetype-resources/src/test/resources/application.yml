@@ -1,0 +1,67 @@
+de.flapdoodle.mongodb.embedded.version: 5.0.5
+info:
+  build:
+    version: 1.0.0-DUMMY_TEST
+    timestamp: maven.build.timestamp
+
+spring:
+  application:
+    name: ${artifactId}-test
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  cloud:
+    stream:
+      function:
+        autodetect: false
+        definition: plainConsumer;genericConsumer
+      default-binder: kafka
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+      default:
+        content-type: application/*+avro
+        producer:
+          use-native-encoding: true
+        consumer:
+          use-native-decoding: true
+      bindings:
+        ${topicEntityNameLowerCamelCase}Producer-out-0:
+          destination: ${topicName}
+        plainProducer-out-0:
+          destination: plain
+          content-type: text/plain
+          producer:
+            use-native-encoding: false
+        genericConsumer-in-0:
+          destination: ${topicName}
+        plainConsumer-in-0:
+          destination: plain
+          content-type: text/plain
+          consumer:
+            use-native-decoding: false
+      kafka:
+        bootstrap-servers: localhost:9092
+        default:
+          requiredAcks: all
+          producer:
+            configuration:
+              schema.registry.url: mock://localhost:8081
+              retry.backoff.ms: 100
+              max.in.flight.requests.per.connection: 1
+              key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+              value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+          consumer:
+            configuration:
+              schema.registry.url: mock://localhost:8081
+              specific.avro.reader: true
+              value.subject.name.strategy: io.confluent.kafka.serializers.subject.TopicRecordNameStrategy
+              key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+              value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        binder:
+          requiredAcks: all
+          brokers: localhost
+          defaultBrokerPort: 9092
+          autoCreateTopics: false

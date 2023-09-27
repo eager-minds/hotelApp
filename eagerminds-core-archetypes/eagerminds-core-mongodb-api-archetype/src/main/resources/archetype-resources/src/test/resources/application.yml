@@ -1,0 +1,14 @@
+de.flapdoodle.mongodb.embedded.version: 5.0.5
+info:
+  build:
+    version: 1.0.0-DUMMY_TEST
+    timestamp: maven.build.timestamp
+
+spring:
+  application:
+    name: ${artifactId}-test
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
