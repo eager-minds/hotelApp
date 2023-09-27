@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -12,7 +13,8 @@
   <packaging>pom</packaging>
   <name>Eagerminds Core - MongoDb Api Parent</name>
   <description>Parent pom providing dependency and plugin management for microservices applications
-    with MongoDb and Web-api</description>
+    with MongoDb and Web-api
+  </description>
   <url>https://eagerminds.tech</url>
 
   <properties>
@@ -22,7 +24,7 @@
 
     <!-- plugin properties -->
 
-    <!-- thirds parties properties (alphabetically) -->
+    <!-- dependency/plugin version properties (alphabetically) -->
 
   </properties>
 
@@ -61,6 +63,7 @@
   </developers>
 
   <dependencies>
+    <!-- COMPILE Scope dependencies (alphabetically) -->
     <!-- EagerMinds dependencies -->
     <dependency>
       <groupId>tech.eagerminds.core</groupId>
@@ -70,5 +73,38 @@
       <groupId>tech.eagerminds.core</groupId>
       <artifactId>eagerminds-core-mongodb-starter</artifactId>
     </dependency>
+
+    <!-- TEST Scope dependencies (alphabetically) -->
+    <dependency>
+      <groupId>tech.eagerminds.core</groupId>
+      <artifactId>eagerminds-core-api-test-starter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>tech.eagerminds.core</groupId>
+      <artifactId>eagerminds-core-mongodb-test-starter</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Apache Maven plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <!-- Spring plugins -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <!-- Checkstyle plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>

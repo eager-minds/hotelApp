@@ -1,4 +1,4 @@
-package tech.eagerminds.core.kafka.producer.test.helper;
+package tech.eagerminds.core.kafka.library.helper;
 
 import org.apache.avro.generic.GenericRecord;
 import org.springframework.kafka.support.KafkaHeaders;

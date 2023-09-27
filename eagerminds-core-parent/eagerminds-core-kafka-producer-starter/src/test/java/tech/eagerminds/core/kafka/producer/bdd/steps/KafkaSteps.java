@@ -1,8 +1,8 @@
 package tech.eagerminds.core.kafka.producer.bdd.steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static tech.eagerminds.core.kafka.producer.test.helper.MessageHelper.getMessageKey;
-import static tech.eagerminds.core.kafka.producer.test.helper.MessageHelper.parse;
+import static tech.eagerminds.core.kafka.library.helper.MessageHelper.getMessageKey;
+import static tech.eagerminds.core.kafka.library.helper.MessageHelper.parse;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,11 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.binder.test.OutputDestination;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.Message;
-import tech.eagerminds.core.kafka.producer.bdd.configuration.CucumberSpringConfiguration;
 import tech.eagerminds.core.kafka.domain.avro.EagerMindsKey;
 import tech.eagerminds.core.kafka.domain.avro.EagerMindsMessage;
 import tech.eagerminds.core.kafka.domain.avro.EagerMindsValue;
 import tech.eagerminds.core.kafka.library.service.MessageProducer;
+import tech.eagerminds.core.kafka.producer.bdd.configuration.CucumberSpringConfiguration;
 
 public class KafkaSteps extends CucumberSpringConfiguration {
 
@@ -53,7 +53,8 @@ public class KafkaSteps extends CucumberSpringConfiguration {
 
   @When("I send a kafka message")
   public void send_a_kafka_message(EagerMindsValue eagerMindsValue) {
-    EagerMindsKey eagerMindsKey = EagerMindsKey.newBuilder().setId(UUID.randomUUID().toString()).build();
+    EagerMindsKey eagerMindsKey = EagerMindsKey.newBuilder().setId(UUID.randomUUID().toString())
+        .build();
     this.sentEagermindsMessage = new EagerMindsMessage<>(eagerMindsKey, eagerMindsValue);
     messageProducer.publishMessage(this.topic, sentEagermindsMessage);
   }
@@ -67,7 +68,8 @@ public class KafkaSteps extends CucumberSpringConfiguration {
   @Then("received kafka message is equals to sent message")
   public void received_kafka_message_is_equals_to_sent_message() {
     assertThat(receivedMessage).isNotNull();
-    assertThat(receivedMessage.getHeaders().get(KafkaHeaders.KEY)).isNotNull().isInstanceOf(EagerMindsKey.class);
+    assertThat(receivedMessage.getHeaders().get(KafkaHeaders.KEY)).isNotNull()
+        .isInstanceOf(EagerMindsKey.class);
     EagerMindsKey eagerMindsKey = getMessageKey(receivedMessage.getHeaders(), EagerMindsKey.class);
     assertThat(eagerMindsKey).isNotNull().isEqualTo(sentEagermindsMessage.key());
 

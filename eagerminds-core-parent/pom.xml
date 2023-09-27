@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -12,7 +13,8 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Eagerminds Core Parent</name>
-  <description>Parent pom providing dependency and plugin management for Eagerminds microservices</description>
+  <description>Parent pom providing dependency and plugin management for Eagerminds microservices
+  </description>
   <url>https://eagerminds.tech</url>
 
   <properties>
@@ -37,6 +39,7 @@
     <checkstyle-plugin.version>3.3.0</checkstyle-plugin.version>
     <checkstyle.version>10.12.3</checkstyle.version>
     <cucumber.version>7.11.1</cucumber.version>
+    <flapdoodle.embed.version>4.9.2</flapdoodle.embed.version>
     <io-confluent.version>7.3.2</io-confluent.version>
     <junit.platform.version>1.9.2</junit.platform.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
@@ -55,12 +58,16 @@
     <module>eagerminds-core-kafka-library</module>
     <module>eagerminds-core-api-library</module>
     <module>eagerminds-core-test-starter</module>
-    <module>eagerminds-core-api-starter</module>
     <module>eagerminds-core-api-test-starter</module>
-    <module>eagerminds-core-kafka-producer-starter</module>
+    <module>eagerminds-core-api-starter</module>
     <module>eagerminds-core-kafka-producer-test-starter</module>
+    <module>eagerminds-core-kafka-producer-starter</module>
+    <module>eagerminds-core-kafka-consumer-test-starter</module>
+    <module>eagerminds-core-kafka-consumer-starter</module>
+    <module>eagerminds-core-mongodb-test-starter</module>
     <module>eagerminds-core-mongodb-starter</module>
     <module>eagerminds-core-kafka-source-api-parent</module>
+    <module>eagerminds-core-kafka-sink-persist-parent</module>
     <module>eagerminds-core-mongodb-api-parent</module>
   </modules>
 
@@ -134,6 +141,21 @@
       <dependency>
         <groupId>tech.eagerminds.core</groupId>
         <artifactId>eagerminds-core-kafka-producer-test-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>tech.eagerminds.core</groupId>
+        <artifactId>eagerminds-core-kafka-consumer-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>tech.eagerminds.core</groupId>
+        <artifactId>eagerminds-core-kafka-consumer-test-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>tech.eagerminds.core</groupId>
+        <artifactId>eagerminds-core-mongodb-test-starter</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -228,6 +250,13 @@
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-spring</artifactId>
         <version>${cucumber.version}</version>
+      </dependency>
+
+      <!-- Flapdoodle Embed -->
+      <dependency>
+        <groupId>de.flapdoodle.embed</groupId>
+        <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
+        <version>${flapdoodle.embed.version}</version>
       </dependency>
 
       <!-- Junit -->

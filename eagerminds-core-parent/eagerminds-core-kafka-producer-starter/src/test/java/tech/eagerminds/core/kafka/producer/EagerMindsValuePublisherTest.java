@@ -1,7 +1,7 @@
 package tech.eagerminds.core.kafka.producer;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static tech.eagerminds.core.kafka.producer.test.helper.MessageHelper.parse;
+import static tech.eagerminds.core.kafka.library.helper.MessageHelper.parse;
 
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import tech.eagerminds.core.kafka.library.service.MessageProducer;
 @Import({TestChannelBinderConfiguration.class})
 class EagerMindsValuePublisherTest {
 
-  final static String GENERIC_BINDING_PRODUCER_NAME = "genericProducer-out-0";
+  final static String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
   final static String GENERIC_TOPIC_NAME = "generic-test";
 
   @Autowired
@@ -30,7 +30,8 @@ class EagerMindsValuePublisherTest {
   private static EagerMindsMessage<EagerMindsKey, EagerMindsValue> createMessage() {
     EagerMindsKey eagerMindsKey = new EagerMindsKey();
     eagerMindsKey.setId(UUID.randomUUID().toString());
-    return new EagerMindsMessage<>(eagerMindsKey, EagerMindsValue.newBuilder().setEntity("my-entity").build());
+    return new EagerMindsMessage<>(eagerMindsKey,
+        EagerMindsValue.newBuilder().setEntity("my-entity").build());
   }
 
   @Test
@@ -46,7 +47,8 @@ class EagerMindsValuePublisherTest {
   }
 
   @Test
-  void produceMessageUsingTopicName(@Autowired MessageProducer messageProducer, @Autowired OutputDestination output) {
+  void produceMessageUsingTopicName(@Autowired MessageProducer messageProducer,
+      @Autowired OutputDestination output) {
     EagerMindsMessage<EagerMindsKey, EagerMindsValue> eagerMindsMessage = createMessage();
     messageProducer.publishMessage(GENERIC_TOPIC_NAME, eagerMindsMessage);
 

@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -10,7 +11,8 @@
 
   <artifactId>eagerminds-core-kafka-library</artifactId>
   <name>Eagerminds Core - Kafka-Generic Library</name>
-  <description>Library providing generic POJOs for microservices applications with Kafka</description>
+  <description>Library providing generic POJOs and utils for microservices applications with Kafka
+  </description>
   <url>https://eagerminds.tech</url>
 
   <properties>
@@ -20,7 +22,8 @@
 
     <!-- plugin properties -->
     <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
-    <schema-registry-topics-pattern>^eagerminds-generic-(key|value)$</schema-registry-topics-pattern>
+    <schema-registry-topics-pattern>^eagerminds-generic-(key|value)$
+    </schema-registry-topics-pattern>
 
     <!-- dependency/plugin version properties (alphabetically) -->
 
@@ -67,6 +70,13 @@
       <artifactId>kafka-avro-serializer</artifactId>
       <scope>compile</scope>
     </dependency>
+
+    <!-- Spring Cloud -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -110,7 +120,7 @@
               <configuration>
                 <sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
                 <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-<!--                <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>-->
+                <!--                <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>-->
                 <stringType>String</stringType>
               </configuration>
             </execution>
@@ -158,7 +168,9 @@
     <profile>
       <id>avroGenerateSources</id>
       <activation>
-        <file><exists>${basedir}/src/main/resources/avro</exists></file>
+        <file>
+          <exists>${basedir}/src/main/resources/avro</exists>
+        </file>
       </activation>
       <build>
         <plugins>

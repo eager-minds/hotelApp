@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tech.eagerminds.core</groupId>
+    <artifactId>eagerminds-core-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>eagerminds-core-mongodb-test-starter</artifactId>
+  <name>Eagerminds Core - MongoDB Starter Test</name>
+  <description>Starter pom providing dependency and plugin management for microservice applications
+    with Web-api Tests
+  </description>
+  <url>https://eagerminds.tech</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Eager Minds - Javier de Diego Navarro</name>
+    <url>https://eagerminds.tech</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>javierddn</id>
+      <name>Javier de Diego Navarro</name>
+      <url>https://www.linkedin.com/in/javierdediegonavarro</url>
+      <email>javier@eagerminds.tech</email>
+      <organization>Eager Minds - Freelancer</organization>
+      <organizationUrl>https://www.linkedin.com/company/eager-minds/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <properties>
+        <githubUrl>https://github.com/javierddn</githubUrl>
+        <linkedInUrl>https://www.linkedin.com/in/javierdediegonavarro</linkedInUrl>
+        <dockerHubUrl>https://hub.docker.com/u/javierddn</dockerHubUrl>
+        <bitbucketUrl>https://bitbucket.org/javierddn</bitbucketUrl>
+        <gitlabUrl>https://gitlab.com/javierddn</gitlabUrl>
+        <travisCiUrl>https://app.travis-ci.com/github/javierddn</travisCiUrl>
+        <circleCiUrl>https://app.circleci.com/pipelines/github/javierddn</circleCiUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <!-- Eagerminds dependencies -->
+    <dependency>
+      <groupId>tech.eagerminds.core</groupId>
+      <artifactId>eagerminds-core-test-starter</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-test</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.flapdoodle.embed</groupId>
+      <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

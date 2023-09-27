@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -12,7 +13,8 @@
   <packaging>pom</packaging>
   <name>Eagerminds Core - Kafka-source Api Parent</name>
   <description>Parent pom providing dependency and plugin management for microservices applications
-    with Kafka-source and Web-api</description>
+    with Kafka-source and Web-api
+  </description>
   <url>https://eagerminds.tech</url>
 
   <properties>
@@ -63,8 +65,8 @@
   </developers>
 
   <dependencies>
-<!-- COMPILE Scope dependencies (alphabetically) -->
-<!-- EagerMinds dependencies -->
+    <!-- COMPILE Scope dependencies (alphabetically) -->
+    <!-- EagerMinds dependencies -->
     <dependency>
       <groupId>tech.eagerminds.core</groupId>
       <artifactId>eagerminds-core-api-starter</artifactId>
@@ -74,7 +76,7 @@
       <artifactId>eagerminds-core-kafka-producer-starter</artifactId>
     </dependency>
 
-<!-- TEST Scope dependencies (alphabetically) -->
+    <!-- TEST Scope dependencies (alphabetically) -->
     <dependency>
       <groupId>tech.eagerminds.core</groupId>
       <artifactId>eagerminds-core-api-test-starter</artifactId>
@@ -185,7 +187,9 @@
     <profile>
       <id>avroGenerateSources</id>
       <activation>
-        <file><exists>${basedir}/src/main/resources/avro</exists></file>
+        <file>
+          <exists>${basedir}/src/main/resources/avro</exists>
+        </file>
       </activation>
       <build>
         <plugins>

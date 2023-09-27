@@ -27,11 +27,11 @@ spring:
         consumer:
           useNativeDecoding: true
       bindings:
-        genericProducer-out-0:
+        genericTestProducer-out-0:
           destination: generic-test
         genericConsumer-in-0:
           destination: generic-test
-        plainProducer-out-0:
+        plainTestProducer-out-0:
           destination: plain-test
           content-type: text/plain
           producer:
