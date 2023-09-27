@@ -10,7 +10,7 @@ import tech.eagerminds.core.kafka.domain.avro.EagerMindsMessage;
 public class MessageHelper {
 
   private MessageHelper() {
-//    Nothing to do
+    // Nothing to do
   }
 
   @SuppressWarnings("unchecked")
@@ -19,9 +19,8 @@ public class MessageHelper {
   }
 
   public static <K> K getMessageKey(MessageHeaders headers, Class<K> clazz) {
-    Object key = headers.containsKey(KafkaHeaders.KEY) ?
-        headers.get(KafkaHeaders.KEY) :
-        headers.get(KafkaHeaders.RECEIVED_KEY);
+    Object key = headers.containsKey(KafkaHeaders.KEY)
+        ? headers.get(KafkaHeaders.KEY) : headers.get(KafkaHeaders.RECEIVED_KEY);
     return clazz.cast(key);
   }
 

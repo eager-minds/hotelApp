@@ -31,7 +31,7 @@ public class ApiSteps extends CucumberSpringConfiguration {
   @Given("^(?:[a-z]+ )?api service is running$")
   public void api_service_is_running() {
     requestSpecification = given().baseUri("http://localhost:" + port)
-//    requestSpecification = given().baseUri("https://virtserver.swaggerhub.com/eagerminds/xyzXYZxyz/1.0.0")
+        // requestSpecification = given().baseUri("https://virtserver.swaggerhub.com/eagerminds/xyzXYZxyz/1.0.0")
         .contentType(ContentType.JSON)
         .log().all();
   }
@@ -51,12 +51,12 @@ public class ApiSteps extends CucumberSpringConfiguration {
   }
 
   @Then("^I get response HTTP code ([0-9]+)(?: [a-zA-Z]+)?")
-  public void i_get_response_http_code_created(Integer httpCode) {
+  public void response_http_code_created(Integer httpCode) {
     response.then().assertThat().statusCode(httpCode);
   }
 
   @Then("I get a response json with build information")
-  public void iGetAResponseJsonWithBuildInformation() {
+  public void responseJsonWithBuildInformation() {
     response.then()
         .body("applicationName", equalTo("eagerminds-core-starter-api-test"))
         .body("buildVersion", equalTo("1.0.0-DUMMY_TEST"))
@@ -64,7 +64,7 @@ public class ApiSteps extends CucumberSpringConfiguration {
   }
 
   @Then("I get a response text_plain with {string}")
-  public void iGetAResponseText_plainWith(String expectedMessage) {
+  public void responseText_plainWith(String expectedMessage) {
     assertThat(response.asString()).isEqualTo(expectedMessage);
   }
 }

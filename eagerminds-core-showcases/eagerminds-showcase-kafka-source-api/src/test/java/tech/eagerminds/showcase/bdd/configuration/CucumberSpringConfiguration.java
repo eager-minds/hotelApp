@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Import;
 import tech.eagerminds.showcase.EagermindsShowcaseKafkaSourceApiApplication;
 
 @CucumberContextConfiguration
-@SpringBootTest(classes = {
-    EagermindsShowcaseKafkaSourceApiApplication.class}, webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {EagermindsShowcaseKafkaSourceApiApplication.class},
+    webEnvironment = WebEnvironment.RANDOM_PORT)
 @Import({TestChannelBinderConfiguration.class})
 public class CucumberSpringConfiguration {
 

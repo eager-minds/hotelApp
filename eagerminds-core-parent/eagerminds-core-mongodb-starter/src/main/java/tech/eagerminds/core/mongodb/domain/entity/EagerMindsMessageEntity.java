@@ -54,10 +54,10 @@ public class EagerMindsMessageEntity {
 
   @Override
   public String toString() {
-    return "EagerMindsMessageEntity{" +
-        "id='" + id + '\'' +
-        ", value='" + value + '\'' +
-        ", metadata=" + metadata +
-        '}';
+    return "EagerMindsMessageEntity{"
+        + "id='" + id + '\''
+        + ", value='" + value + '\''
+        + ", metadata=" + metadata
+        + '}';
   }
 }

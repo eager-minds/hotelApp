@@ -13,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +35,15 @@ public class ApiSteps extends CucumberSpringConfiguration {
 
   private void setRequestSpecification() {
     requestSpecification = given().port(scenarioContext.port())
-//    use given().baseUri("https://your.mock.server/path") instead to test with a mock server
-//    requestSpecification = given().baseUri("https://virtserver.swaggerhub.com/eagerminds/xyzXYZxyz/1.0.0")
+        // use given().baseUri("https://your.mock.server/path") instead to test with a mock server
+        // requestSpecification = given().baseUri("https://virtserver.swaggerhub.com/eagerminds/xyzXYZxyz/1.0.0")
         .log().all();
   }
 
   @Given("^(?:[a-z]+ )?api service is running$")
   public void api_service_is_running() {
     setRequestSpecification();
-// This get will throw an exception if the service is not running
+    // This get will throw an exception if the service is not running
     requestSpecification.get();
   }
 
@@ -59,11 +60,15 @@ public class ApiSteps extends CucumberSpringConfiguration {
 
   @When("^(GET|POST) ([\\/a-zA-Z_-]+)$")
   public void call_rest_api_by_http_method(HttpMethod httpMethod, String path) {
-    scenarioContext.setResponse(switch (httpMethod) {
+    scenarioContext.setResponse(callByHttpMethod(httpMethod, path));
+  }
+
+  private Response callByHttpMethod(HttpMethod httpMethod, String path) {
+    return switch (httpMethod) {
       case GET -> requestSpecification.when().get(path);
       case POST -> requestSpecification.post(path);
       default -> throw new io.cucumber.java.PendingException();
-    });
+    };
   }
 
   @When("^I get body from response of EagerMindsShowcaseKeyDto type$")
@@ -75,23 +80,23 @@ public class ApiSteps extends CucumberSpringConfiguration {
   }
 
   @Then("^I get response HTTP code ([0-9]+)(?: [a-zA-Z]+)?")
-  public void i_get_response_http_code_created(Integer httpCode) {
+  public void response_http_code_created(Integer httpCode) {
     scenarioContext.response().then().assertThat().statusCode(httpCode);
   }
 
   @Then("^(?:I get a )response json that has field ([a-zA-Z]+) with value(?: equals to) \"(.*)\"")
-  public void iGetAResponseJsonWithBuildInformation(String jsonField, String value) {
+  public void responseJsonWithBuildInformation(String jsonField, String value) {
     scenarioContext.response().then().body(jsonField, equalTo(value));
   }
 
   @Then("I get a response text_plain with expected message {string}")
-  public void i_get_response_text_plain_with_expected_message(String expectedMessage) {
+  public void response_text_plain_with_expected_message(String expectedMessage) {
     AssertionsForClassTypes.assertThat(scenarioContext.response().asString())
         .isEqualTo(expectedMessage);
   }
 
   @Then("^(?:I get )response body that has field ([a-zA-Z]+) with generated UUID$")
-  public void i_get_response_body_with_generated_uuid(String fieldName) {
+  public void response_body_with_generated_uuid(String fieldName) {
     scenarioContext.response().then()
         .body(fieldName, responseBody -> notNullValue())
         .body(fieldName,

@@ -16,8 +16,8 @@ import tech.eagerminds.core.kafka.library.service.MessageProducer;
 @Import({TestChannelBinderConfiguration.class})
 class PlainTextPublisherTest {
 
-  final static String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
-  final static String PLAIN_TOPIC_NAME = "plain-test";
+  static final String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
+  static final String PLAIN_TOPIC_NAME = "plain-test";
   @Autowired
   MessageProducer messageProducer;
 

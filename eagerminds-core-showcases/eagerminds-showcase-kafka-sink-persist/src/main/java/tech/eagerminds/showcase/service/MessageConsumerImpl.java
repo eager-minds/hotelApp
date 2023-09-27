@@ -19,7 +19,8 @@ public class MessageConsumerImpl implements MessageConsumer {
 
   @Autowired
   public MessageConsumerImpl(
-      EagerMindsGenericReactiveMongodbService<EagerMindsShowcaseEntity, String> eagerMindsGenericReactiveMongodbService) {
+      EagerMindsGenericReactiveMongodbService<EagerMindsShowcaseEntity, String>
+          eagerMindsGenericReactiveMongodbService) {
     this.eagerMindsGenericReactiveMongodbService = eagerMindsGenericReactiveMongodbService;
   }
 

@@ -214,14 +214,13 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 
 ## To Do
 
-1. enable checkstyle and code cleanup
-2. Gradle
-3. Sonarqube validation (docker/server)
-4. performance audit
-5. performance charts
-6. versioning
-7. Quarkus & Kubernetes
-8. Cloud
+1. Gradle
+2. Sonarqube validation (docker/server)
+3. performance audit
+4. performance charts
+5. versioning
+6. Quarkus & Kubernetes
+7. Cloud
 
 ## About Owner
 

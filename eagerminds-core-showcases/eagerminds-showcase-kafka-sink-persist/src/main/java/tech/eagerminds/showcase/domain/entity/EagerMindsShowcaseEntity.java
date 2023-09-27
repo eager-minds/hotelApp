@@ -57,11 +57,11 @@ public class EagerMindsShowcaseEntity {
 
   @Override
   public String toString() {
-    return "EagerMindsShowcaseEntity{" +
-        "id='" + id + '\'' +
-        ", myString='" + myString + '\'' +
-        ", myInt=" + myInt +
-        ", myIntArray=" + myIntArray +
-        '}';
+    return "EagerMindsShowcaseEntity{"
+        + "id='" + id + '\''
+        + ", myString='" + myString + '\''
+        + ", myInt=" + myInt
+        + ", myIntArray=" + myIntArray
+        + '}';
   }
 }

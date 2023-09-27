@@ -60,7 +60,7 @@ public class KafkaSteps extends CucumberSpringConfiguration {
   }
 
   @And("I get a kafka message from topic")
-  public void i_get_a_kafka_message_from_topic() {
+  public void kafka_message_from_topic() {
     receivedMessage = output.receive(100, this.topic);
     LOG.info("received message: {}", receivedMessage);
   }

@@ -29,7 +29,7 @@
 
     <!-- plugin properties -->
     <checkstyle-checks-file>checkstyle-checks.xml</checkstyle-checks-file>
-    <checkstyle-excludes>**</checkstyle-excludes>
+    <checkstyle-excludes>**/domain/avro/**,**/*.avsc</checkstyle-excludes>
     <checkstyle.suppressions.file>checkstyle-suppressions.xml</checkstyle.suppressions.file>
     <resource.delimiter>^</resource.delimiter>
 
@@ -406,6 +406,9 @@
               <testSourceDirectory>src/test/java</testSourceDirectory>
             </testSourceDirectories>
             <violationSeverity>warning</violationSeverity>
+            <sourceDirectories>
+              <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+            </sourceDirectories>
           </configuration>
           <executions>
             <execution>

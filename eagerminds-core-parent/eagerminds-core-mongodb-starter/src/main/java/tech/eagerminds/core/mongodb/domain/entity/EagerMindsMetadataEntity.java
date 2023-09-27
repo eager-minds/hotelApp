@@ -67,12 +67,12 @@ public class EagerMindsMetadataEntity {
 
   @Override
   public String toString() {
-    return "EagerMindsMetadataEntity{" +
-        "id='" + id + '\'' +
-        ", dateCreated='" + dateCreated + '\'' +
-        ", origin='" + origin + '\'' +
-        ", traceId='" + traceId + '\'' +
-        ", user='" + user + '\'' +
-        '}';
+    return "EagerMindsMetadataEntity{"
+        + "id='" + id + '\''
+        + ", dateCreated='" + dateCreated + '\''
+        + ", origin='" + origin + '\''
+        + ", traceId='" + traceId + '\''
+        + ", user='" + user + '\''
+        + '}';
   }
 }

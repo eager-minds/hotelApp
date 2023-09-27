@@ -13,12 +13,12 @@ public interface EagerMindsShowcaseMapper {
 
   EagerMindsShowcaseKey toAvro(EagerMindsShowcaseKeyDto eagerMindsShowcaseKeyDto);
 
-  EagerMindsShowcaseKeyDto toDto(EagerMindsShowcaseKey eagerMindsShowcaseKey);
-
   @Mapping(target = "metadata", ignore = true)
   @Mapping(target = "entity", source = ".")
   @Mapping(target = "entityBuilder", ignore = true)
   EagerMindsShowcaseValue toAvro(EagerMindsShowcaseValueDto eagerMindsShowcaseValueDto);
+
+  EagerMindsShowcaseKeyDto toDto(EagerMindsShowcaseKey eagerMindsShowcaseKey);
 
   @Mapping(target = ".", source = "entity")
   EagerMindsShowcaseValueDto toDto(EagerMindsShowcaseValue eagerMindsShowcaseValue);

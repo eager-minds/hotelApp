@@ -57,7 +57,7 @@ public class KafkaSteps extends CucumberSpringConfiguration {
   }
 
   @And("I get a kafka message from topic")
-  public void i_get_a_kafka_message_from_topic() {
+  public void kafka_message_from_topic() {
     assertThat(MessageConsumerImpl.RECEIVED_MESSAGES).hasSize(1);
     Message a = MessageConsumerImpl.RECEIVED_MESSAGES.get(0);
     receivedMessage = MessageConsumerImpl.RECEIVED_MESSAGES.get(0);

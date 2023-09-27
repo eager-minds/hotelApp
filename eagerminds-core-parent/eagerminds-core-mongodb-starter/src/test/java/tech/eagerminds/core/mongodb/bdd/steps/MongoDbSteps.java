@@ -40,12 +40,12 @@ public class MongoDbSteps extends CucumberSpringConfiguration {
   }
 
   @When("I persist the eagermindsMessage to mongo")
-  public void iPersistTheEagermindsMessageToMongo() {
+  public void persistTheEagermindsMessageToMongo() {
     eagerMindsMessageService.save(scenarioContext.savedEagerMindsMessageEntity()).block();
   }
 
   @And("I get all eagermindsMessages")
-  public void iGetAllEagermindsMessages() {
+  public void allEagermindsMessages() {
     scenarioContext.setReceivedEagerMindsMessageEntityList(
         mongoOperations.findAll(EagerMindsMessageEntity.class));
   }

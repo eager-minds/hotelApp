@@ -27,10 +27,10 @@ import tech.eagerminds.core.kafka.producer.test.service.PlainConsumerMessagePars
 //     topics = {"generic"})
 class EagermindsProducerApplicationIT {
 
-  final static String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
-  final static String PLAIN_TOPIC_NAME = "plain-test";
-  final static String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
-  final static String GENERIC_TOPIC_NAME = "generic-test";
+  static final String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
+  static final String PLAIN_TOPIC_NAME = "plain-test";
+  static final String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
+  static final String GENERIC_TOPIC_NAME = "generic-test";
 
   @Autowired
   StreamBridge streamBridge;

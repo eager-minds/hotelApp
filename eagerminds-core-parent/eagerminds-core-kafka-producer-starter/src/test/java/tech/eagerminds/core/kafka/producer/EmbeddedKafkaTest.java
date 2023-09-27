@@ -24,15 +24,15 @@ import tech.eagerminds.core.kafka.producer.test.service.PlainConsumerMessagePars
 
 @SpringBootTest(classes = {EagermindsCoreStarterKafkaApplication.class})
 @Import({EagerMindsConsumerConfiguration.class})
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092",
-    "port=9092"})
+@EmbeddedKafka(partitions = 1,
+    brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
 //@DirtiesContext
 class EmbeddedKafkaTest {
 
-  final static String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
-  final static String GENERIC_TOPIC_NAME = "generic-test";
-  final static String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
-  final static String PLAIN_TOPIC_NAME = "plain-test";
+  static final String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
+  static final String GENERIC_TOPIC_NAME = "generic-test";
+  static final String PLAIN_BINDING_PRODUCER_NAME = "plainTestProducer-out-0";
+  static final String PLAIN_TOPIC_NAME = "plain-test";
   @Autowired
   StreamBridge streamBridge;
   @Autowired

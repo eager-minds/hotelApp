@@ -67,12 +67,12 @@ public class AvailabilitySearchEntity {
 
   @Override
   public String toString() {
-    return "AvailabilitySearchEntity{" +
-        "id='" + id + '\'' +
-        ", hotelId='" + hotelId + '\'' +
-        ", checkIn='" + checkIn + '\'' +
-        ", checkOut='" + checkOut + '\'' +
-        ", ages=" + ages +
-        '}';
+    return "AvailabilitySearchEntity{"
+        + "id='" + id + '\''
+        + ", hotelId='" + hotelId + '\''
+        + ", checkIn='" + checkIn + '\''
+        + ", checkOut='" + checkOut + '\''
+        + ", ages=" + ages
+        + '}';
   }
 }

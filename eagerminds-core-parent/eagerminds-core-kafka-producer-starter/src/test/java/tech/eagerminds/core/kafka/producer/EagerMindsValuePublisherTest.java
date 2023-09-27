@@ -21,8 +21,8 @@ import tech.eagerminds.core.kafka.library.service.MessageProducer;
 @Import({TestChannelBinderConfiguration.class})
 class EagerMindsValuePublisherTest {
 
-  final static String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
-  final static String GENERIC_TOPIC_NAME = "generic-test";
+  static final String GENERIC_BINDING_PRODUCER_NAME = "genericTestProducer-out-0";
+  static final String GENERIC_TOPIC_NAME = "generic-test";
 
   @Autowired
   MessageProducer messageProducer;
@@ -40,9 +40,9 @@ class EagerMindsValuePublisherTest {
     messageProducer.publishMessage(GENERIC_BINDING_PRODUCER_NAME, eagerMindsMessage);
 
     Message<byte[]> message = output.receive(100, GENERIC_TOPIC_NAME);
-    EagerMindsValue EagerMindsValue = parse(message, eagerMindsMessage.value().getClass());
+    EagerMindsValue eagerMindsValue = parse(message, eagerMindsMessage.value().getClass());
 
-    assertThat(EagerMindsValue).isEqualTo(eagerMindsMessage.value());
+    assertThat(eagerMindsValue).isEqualTo(eagerMindsMessage.value());
     assertThat(message.getHeaders()).containsEntry(KafkaHeaders.KEY, eagerMindsMessage.key());
   }
 
@@ -53,9 +53,9 @@ class EagerMindsValuePublisherTest {
     messageProducer.publishMessage(GENERIC_TOPIC_NAME, eagerMindsMessage);
 
     Message<byte[]> message = output.receive(100, GENERIC_TOPIC_NAME);
-    EagerMindsValue EagerMindsValue = parse(message, eagerMindsMessage.value().getClass());
+    EagerMindsValue eagerMindsValue = parse(message, eagerMindsMessage.value().getClass());
 
-    assertThat(EagerMindsValue).isEqualTo(eagerMindsMessage.value());
+    assertThat(eagerMindsValue).isEqualTo(eagerMindsMessage.value());
     assertThat(message.getHeaders()).containsEntry(KafkaHeaders.KEY, eagerMindsMessage.key());
   }
 }
