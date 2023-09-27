@@ -170,7 +170,8 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 
 </details>
 
-- save a well formatted availability search to `POST /search` <ins>*<availability_search_post_example1_body>*</ins>
+- save a well formatted availability search to `POST /search` 
+    <ins>*<availability_search_post_example1_body>*</ins>
     - returns `HTTP 201` created
     - returns generated id (UUID format) <ins>*<availability_search_post_callback_pattern>*</ins>
     - consulting `GET /count` with returned id will return search with count 1 <ins>*<
@@ -179,8 +180,9 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
     - returns `HTTP 400` bad-request
 - save an incompatible availability search to `POST /search`
     - returns `HTTP 400` bad-request
-- save a well formatted availability search 3 times to `POST /search` and other availability search once
-  <ins>*3\*<availability_search_post_example1_body> + 1\*<availability_search_post_example2_body>*</ins>
+- save a well formatted availability search 3 times to `POST /search` and other availability search
+  once <ins>*3\*<availability_search_post_example1_body> + 1\*
+  <availability_search_post_example2_body>*</ins>
     - always returns `HTTP 201` created
     - returns different generated ids (UUID format)
     - consulting `GET /count` with returned ids of first search will return search with count 3
@@ -201,7 +203,8 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 - retrieve searches by id with count of similar searches:
     - Endpoint `GET /count`
         - can be 'searchId' pathParam instead queryParam?
-        - if 'searchId' not exists returns 404 error or empty 'search' field with 'count' field as 0?
+        - if 'searchId' not exists returns 404 error or empty 'search' field with 'count' field as
+          0?
 - which audit fields are required
 - should application errors be registered on any topic?
 
@@ -211,23 +214,14 @@ You can also import [OpenApi file](api/HotelAvailability-1.0.0-swagger.yaml) to 
 
 ## To Do
 
-1. module search-post-api
-    1. acceptance tests with cucumber
-    2. module code
-2. module search-get-api
-    1. acceptance tests with cucumber
-    2. module code
-3. module search-sink-persist
-    1. acceptance tests with cucumber
-    2. module code
-4. enable checkstyle and code cleanup
-5. Gradle
-6. Sonarqube validation (docker/server)
-7. performance audit
-8. performance charts
-9. versioning
-10. Quarkus & Kubernetes
-11. Cloud
+1. enable checkstyle and code cleanup
+2. Gradle
+3. Sonarqube validation (docker/server)
+4. performance audit
+5. performance charts
+6. versioning
+7. Quarkus & Kubernetes
+8. Cloud
 
 ## About Owner
 
