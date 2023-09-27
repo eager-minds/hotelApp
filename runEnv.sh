@@ -28,26 +28,18 @@ docker network create eagerminds_hotel
 docker-compose -f ./composes/docker-compose-kafka.yml -p kafka-stack up -d
 docker-compose -f ./composes/docker-compose-mongodb.yml -p mongodb-stack up -d
 
-
-
-#for number in $(seq ${_start} ${_end}); do
-#  sleep 0.1
-#  show_progress ${number} ${_end} "Waiting for schema registry"
-#done
-
-defaultRetries=10
-#retries=$defaultRetries
 _start=1
 _end=100
 cont=$_start
 retries=$_end
 while [ $cont -le $retries ]; do
-  if [ $cont -gt 0 ]; then
 
+  if [ $cont -gt 0 ]; then
     show_progress $cont $retries "Waiting for schema registry"
-#    echo "Waiting for schema-registry... retry: $cont/$retries"
   fi
+
   schemaRegistryStatus=$(curl --write-out '%{http_code}' --silent --output /dev/null localhost:8081)
+
   if [[ "$schemaRegistryStatus" -eq 200 ]]; then
     show_progress $retries $retries "Waiting for schema registry"
     echo
@@ -55,11 +47,13 @@ while [ $cont -le $retries ]; do
     ./registry.sh
     break
   fi
-  sleep 0.15
+
+  sleep 0.16
   ((cont++))
 
   if [ "$cont" -gt $retries ]; then
-    PS3='Schema-registry is not running, try Again?'
+    echo
+    PS3='Schema-registry is not running, try Again? '
     options=("Yes" "No")
     select opt in "${options[@]}"; do
       case $opt in
@@ -75,4 +69,5 @@ while [ $cont -le $retries ]; do
     done
     echo
   fi
+
 done
