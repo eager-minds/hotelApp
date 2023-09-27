@@ -20,7 +20,8 @@ public class EagerMindsConsumerConfiguration {
   }
 
   @Bean
-  public Consumer<Message<String>> plainConsumer(@Autowired PlainConsumerMessageParser plainConsumerMessageParser) {
+  public Consumer<Message<String>> plainConsumer(
+      @Autowired PlainConsumerMessageParser plainConsumerMessageParser) {
     return plainConsumerMessageParser::getMessage;
   }
 

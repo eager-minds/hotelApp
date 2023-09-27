@@ -22,19 +22,24 @@ public class KafkaEagerMindsShowcaseControllerImpl implements KafkaEagerMindsSho
   private final MessageProducer messageProducer;
 
   @Autowired
-  public KafkaEagerMindsShowcaseControllerImpl(EagerMindsShowcaseMapper eagerMindsShowcaseMapper, MessageProducer messageProducer) {
+  public KafkaEagerMindsShowcaseControllerImpl(EagerMindsShowcaseMapper eagerMindsShowcaseMapper,
+      MessageProducer messageProducer) {
     this.eagerMindsShowcaseMapper = eagerMindsShowcaseMapper;
     this.messageProducer = messageProducer;
   }
 
   @Override
-  public ResponseEntity<EagerMindsShowcaseKeyDto> sendMessage(EagerMindsShowcaseValueDto eagerMindsShowcaseValueDto) {
+  public ResponseEntity<EagerMindsShowcaseKeyDto> sendMessage(
+      EagerMindsShowcaseValueDto eagerMindsShowcaseValueDto) {
     EagerMindsShowcaseKey eagerMindsShowcaseKey = EagerMindsShowcaseKey.newBuilder()
         .setId(UUID.randomUUID().toString())
         .build();
-    EagerMindsShowcaseValue eagerMindsShowcaseValue = eagerMindsShowcaseMapper.toAvro(eagerMindsShowcaseValueDto);
-    messageProducer.publishMessage(TOPIC_BINDING_NAME, eagerMindsShowcaseKey, eagerMindsShowcaseValue);
-    EagerMindsShowcaseKeyDto eagerMindsShowcaseKeyDto = eagerMindsShowcaseMapper.toDto(eagerMindsShowcaseKey);
+    EagerMindsShowcaseValue eagerMindsShowcaseValue = eagerMindsShowcaseMapper.toAvro(
+        eagerMindsShowcaseValueDto);
+    messageProducer.publishMessage(TOPIC_BINDING_NAME, eagerMindsShowcaseKey,
+        eagerMindsShowcaseValue);
+    EagerMindsShowcaseKeyDto eagerMindsShowcaseKeyDto = eagerMindsShowcaseMapper.toDto(
+        eagerMindsShowcaseKey);
     return new ResponseEntity<>(eagerMindsShowcaseKeyDto, HttpStatus.CREATED);
   }
 }

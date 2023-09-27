@@ -13,7 +13,8 @@ public interface PlainConsumerMessageParser {
   default <K> void getMessageWithHeader(Message<String> message, Class<K> keyClass) {
     K recordKey = message.getHeaders().get(KafkaHeaders.KEY, keyClass);
     String eagerMindsValue = message.getPayload();
-    EagerMindsPlainMessage<K> eagerMindsPlainMessage = new EagerMindsPlainMessage<>(recordKey, eagerMindsValue);
+    EagerMindsPlainMessage<K> eagerMindsPlainMessage = new EagerMindsPlainMessage<>(recordKey,
+        eagerMindsValue);
     LOG.info("Received payload: {}", eagerMindsPlainMessage);
   }
 

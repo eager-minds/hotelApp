@@ -11,5 +11,6 @@ public interface KafkaAvailabilitySearchController {
 
   @PostMapping(path = "search", produces = MediaType.APPLICATION_JSON_VALUE,
       consumes = MediaType.APPLICATION_JSON_VALUE)
-  ResponseEntity<AvailabilitySearchKeyDto> search(@RequestBody AvailabilitySearchValueDto availabilitySearchValueDto);
+  ResponseEntity<AvailabilitySearchKeyDto> search(
+      @RequestBody AvailabilitySearchValueDto availabilitySearchValueDto);
 }

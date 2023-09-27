@@ -1,6 +1,5 @@
 package tech.eagerminds.hotel.availability.search.service;
 
-import java.time.Duration;
 import org.apache.avro.generic.GenericRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;

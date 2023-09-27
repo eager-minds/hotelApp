@@ -67,9 +67,11 @@ public class ApiSteps extends CucumberSpringConfiguration {
   }
 
   @When("^I get body from response of EagerMindsShowcaseKeyDto type$")
-  public void get_body_from_response_of_eagerMindsShowcaseKey_type() throws JsonProcessingException {
+  public void get_body_from_response_of_eagerMindsShowcaseKey_type()
+      throws JsonProcessingException {
     scenarioContext.setSavedEagerMindsShowcaseKeyDto(
-        new ObjectMapper().readValue(scenarioContext.response().body().asString(), EagerMindsShowcaseKeyDto.class));
+        new ObjectMapper().readValue(scenarioContext.response().body().asString(),
+            EagerMindsShowcaseKeyDto.class));
   }
 
   @Then("^I get response HTTP code ([0-9]+)(?: [a-zA-Z]+)?")
@@ -92,7 +94,8 @@ public class ApiSteps extends CucumberSpringConfiguration {
   public void i_get_response_body_with_generated_uuid(String fieldName) {
     scenarioContext.response().then()
         .body(fieldName, responseBody -> notNullValue())
-        .body(fieldName, responseBody -> hasToString(responseBody.jsonPath().getUUID(fieldName).toString()))
+        .body(fieldName,
+            responseBody -> hasToString(responseBody.jsonPath().getUUID(fieldName).toString()))
         .log().all();
   }
 }

@@ -27,7 +27,7 @@ public class EagerMindsShowcaseControllerImpl implements EagerMindsShowcaseContr
 
   @Autowired
   public EagerMindsShowcaseControllerImpl(EagerMindsGenericMongodbService<EagerMindsShowcaseEntity,
-    String> eagerMindsShowcaseMongoDbService, MongoOperations mongoOperations) {
+      String> eagerMindsShowcaseMongoDbService, MongoOperations mongoOperations) {
     this.eagerMindsShowcaseMongoDbService = eagerMindsShowcaseMongoDbService;
     this.mongoOperations = mongoOperations;
   }

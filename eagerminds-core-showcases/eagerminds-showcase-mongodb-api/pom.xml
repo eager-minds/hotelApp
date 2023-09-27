@@ -1,18 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>tech.eagerminds.core</groupId>
     <artifactId>eagerminds-core-mongodb-api-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../eagerminds-core-parent/eagerminds-core-mongodb-api-parent/pom.xml</relativePath>
+    <relativePath>../../eagerminds-core-parent/eagerminds-core-mongodb-api-parent/pom.xml
+    </relativePath>
   </parent>
 
   <groupId>tech.eagerminds.showcase</groupId>
   <artifactId>eagerminds-showcase-mongodb-api</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Eagerminds Core - MongoDb Api Showcase</name>
-  <description>Springboot microservice showcase based on Eagerminds architecture with mongodb-api typology</description>
+  <description>Springboot microservice showcase based on Eagerminds architecture with mongodb-api
+    typology
+  </description>
   <url>https://eagerminds.tech</url>
 
   <properties>

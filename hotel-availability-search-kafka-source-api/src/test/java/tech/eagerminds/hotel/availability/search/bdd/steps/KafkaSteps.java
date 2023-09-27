@@ -58,14 +58,16 @@ public class KafkaSteps extends CucumberSpringConfiguration {
     assertThat(receivedMessage).isNotNull();
     assertThat(receivedMessage.getHeaders().get(KafkaHeaders.KEY))
         .isNotNull().isInstanceOf(AvailabilitySearchKey.class);
-    AvailabilitySearchKey availabilitySearchKey = getMessageKey(receivedMessage.getHeaders(), AvailabilitySearchKey.class);
+    AvailabilitySearchKey availabilitySearchKey = getMessageKey(receivedMessage.getHeaders(),
+        AvailabilitySearchKey.class);
     assertThat(availabilitySearchKey)
         .isNotNull();
     assertThat(availabilitySearchKey.getId())
         .isNotNull()
         .isEqualTo(scenarioContext.savedAvailabilitySearchKeyDto().searchId());
 
-    AvailabilitySearchValue receivedAvailabilitySearchValue = parse(receivedMessage, AvailabilitySearchValue.class);
+    AvailabilitySearchValue receivedAvailabilitySearchValue = parse(receivedMessage,
+        AvailabilitySearchValue.class);
     assertThat(receivedAvailabilitySearchValue).isNotNull();
     assertThat(receivedAvailabilitySearchValue.getEntity().getHotelId())
         .isEqualTo(scenarioContext.savedAvailabilitySearchValueDto().hotelId());

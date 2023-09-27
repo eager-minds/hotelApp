@@ -59,7 +59,8 @@ public class KafkaSteps extends CucumberSpringConfiguration {
     assertThat(receivedMessage.getHeaders().get(KafkaHeaders.KEY))
         .isNotNull()
         .isInstanceOf(EagerMindsShowcaseKey.class);
-    EagerMindsShowcaseKey eagerMindsShowcaseKey = getMessageKey(receivedMessage.getHeaders(), EagerMindsShowcaseKey.class);
+    EagerMindsShowcaseKey eagerMindsShowcaseKey = getMessageKey(receivedMessage.getHeaders(),
+        EagerMindsShowcaseKey.class);
     assertThat(eagerMindsShowcaseKey)
         .isNotNull()
         .isEqualToComparingOnlyGivenFields(scenarioContext.savedEagerMindsShowcaseKeyDto(), "id");
@@ -67,7 +68,8 @@ public class KafkaSteps extends CucumberSpringConfiguration {
         .isNotNull()
         .isEqualTo(scenarioContext.savedEagerMindsShowcaseKeyDto().id());
 
-    EagerMindsShowcaseValue receivedEagerMindsShowcaseValue = parse(receivedMessage, EagerMindsShowcaseValue.class);
+    EagerMindsShowcaseValue receivedEagerMindsShowcaseValue = parse(receivedMessage,
+        EagerMindsShowcaseValue.class);
     assertThat(receivedEagerMindsShowcaseValue).isNotNull();
     assertThat(receivedEagerMindsShowcaseValue.getEntity().getMyString())
         .isEqualTo(scenarioContext.savedEagerMindsShowcaseValueDto().myString());

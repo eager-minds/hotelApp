@@ -15,7 +15,8 @@ public class EagerMindsReactiveMongodbServiceImpl implements
   private final EagerMindsMessageRepository eagerMindsMessageRepository;
 
   @Autowired
-  public EagerMindsReactiveMongodbServiceImpl(EagerMindsMessageRepository eagerMindsMessageRepository) {
+  public EagerMindsReactiveMongodbServiceImpl(
+      EagerMindsMessageRepository eagerMindsMessageRepository) {
     this.eagerMindsMessageRepository = eagerMindsMessageRepository;
   }
 

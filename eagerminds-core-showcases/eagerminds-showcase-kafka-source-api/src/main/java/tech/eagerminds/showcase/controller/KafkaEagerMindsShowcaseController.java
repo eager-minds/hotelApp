@@ -11,5 +11,6 @@ public interface KafkaEagerMindsShowcaseController {
 
   @PostMapping(path = "send", produces = MediaType.APPLICATION_JSON_VALUE,
       consumes = MediaType.APPLICATION_JSON_VALUE)
-  ResponseEntity<EagerMindsShowcaseKeyDto> sendMessage(@RequestBody EagerMindsShowcaseValueDto eagerMindsShowcaseValueDto);
+  ResponseEntity<EagerMindsShowcaseKeyDto> sendMessage(
+      @RequestBody EagerMindsShowcaseValueDto eagerMindsShowcaseValueDto);
 }

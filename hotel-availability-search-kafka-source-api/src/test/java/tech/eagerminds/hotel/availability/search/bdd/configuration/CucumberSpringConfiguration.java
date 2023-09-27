@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Import;
 import tech.eagerminds.hotel.availability.search.HotelAvailabilitySearchKafkaSourceApiApplication;
 
 @CucumberContextConfiguration
-@SpringBootTest(classes = {HotelAvailabilitySearchKafkaSourceApiApplication.class}, webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {HotelAvailabilitySearchKafkaSourceApiApplication.class},
+    webEnvironment = WebEnvironment.RANDOM_PORT)
 @Import({TestChannelBinderConfiguration.class})
 public class CucumberSpringConfiguration {
 

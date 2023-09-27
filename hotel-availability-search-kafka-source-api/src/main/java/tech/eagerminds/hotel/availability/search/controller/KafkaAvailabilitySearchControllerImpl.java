@@ -22,19 +22,24 @@ public class KafkaAvailabilitySearchControllerImpl implements KafkaAvailabilityS
   private final MessageProducer messageProducer;
 
   @Autowired
-  public KafkaAvailabilitySearchControllerImpl(AvailabilitySearchMapper availabilitySearchMapper, MessageProducer messageProducer) {
+  public KafkaAvailabilitySearchControllerImpl(AvailabilitySearchMapper availabilitySearchMapper,
+      MessageProducer messageProducer) {
     this.availabilitySearchMapper = availabilitySearchMapper;
     this.messageProducer = messageProducer;
   }
 
   @Override
-  public ResponseEntity<AvailabilitySearchKeyDto> search(AvailabilitySearchValueDto availabilitySearchValueDto) {
+  public ResponseEntity<AvailabilitySearchKeyDto> search(
+      AvailabilitySearchValueDto availabilitySearchValueDto) {
     AvailabilitySearchKey availabilitySearchKey = AvailabilitySearchKey.newBuilder()
         .setId(UUID.randomUUID().toString())
         .build();
-    AvailabilitySearchValue availabilitySearchValue = availabilitySearchMapper.toAvro(availabilitySearchValueDto);
-    messageProducer.publishMessage(TOPIC_BINDING_NAME, availabilitySearchKey, availabilitySearchValue);
-    AvailabilitySearchKeyDto availabilitySearchKeyDto = availabilitySearchMapper.toDto(availabilitySearchKey);
+    AvailabilitySearchValue availabilitySearchValue = availabilitySearchMapper
+        .toAvro(availabilitySearchValueDto);
+    messageProducer.publishMessage(TOPIC_BINDING_NAME, availabilitySearchKey,
+        availabilitySearchValue);
+    AvailabilitySearchKeyDto availabilitySearchKeyDto = availabilitySearchMapper
+        .toDto(availabilitySearchKey);
     return new ResponseEntity<>(availabilitySearchKeyDto, HttpStatus.CREATED);
   }
 }

@@ -38,7 +38,8 @@ public class ScenarioContext {
     return savedEagerMindsShowcaseKeyDto;
   }
 
-  public void setSavedEagerMindsShowcaseKeyDto(EagerMindsShowcaseKeyDto savedEagerMindsShowcaseKeyDto) {
+  public void setSavedEagerMindsShowcaseKeyDto(
+      EagerMindsShowcaseKeyDto savedEagerMindsShowcaseKeyDto) {
     this.savedEagerMindsShowcaseKeyDto = savedEagerMindsShowcaseKeyDto;
   }
 
@@ -46,7 +47,8 @@ public class ScenarioContext {
     return savedEagerMindsShowcaseValueDto;
   }
 
-  public void setSavedEagerMindsShowcaseValueDto(EagerMindsShowcaseValueDto savedEagerMindsShowcaseValueDto) {
+  public void setSavedEagerMindsShowcaseValueDto(
+      EagerMindsShowcaseValueDto savedEagerMindsShowcaseValueDto) {
     this.savedEagerMindsShowcaseValueDto = savedEagerMindsShowcaseValueDto;
   }
 }

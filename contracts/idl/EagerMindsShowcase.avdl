@@ -3,6 +3,6 @@ protocol EagerMindsShowcaseProtocol {
 	record EagerMindsShowcase {
 		string? myString = null;
 		int? myInt = null;
-		union { null, array<int> } myIntArray = null;
+		union{null, array<int>} myIntArray = null;
 	}
 }

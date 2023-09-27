@@ -67,9 +67,11 @@ public class ApiSteps extends CucumberSpringConfiguration {
   }
 
   @When("^I get body from response of AvailabilitySearchKeyDto type$")
-  public void get_body_from_response_of_availabilitySearchKey_type() throws JsonProcessingException {
+  public void get_body_from_response_of_availabilitySearchKey_type()
+      throws JsonProcessingException {
     scenarioContext.setSavedAvailabilitySearchKeyDto(
-        new ObjectMapper().readValue(scenarioContext.response().body().asString(), AvailabilitySearchKeyDto.class));
+        new ObjectMapper().readValue(scenarioContext.response().body().asString(),
+            AvailabilitySearchKeyDto.class));
   }
 
   @Then("^I get response HTTP code ([0-9]+)(?: [a-zA-Z]+)?")
@@ -84,14 +86,16 @@ public class ApiSteps extends CucumberSpringConfiguration {
 
   @Then("I get a response text_plain with expected message {string}")
   public void i_get_response_text_plain_with_expected_message(String expectedMessage) {
-    AssertionsForClassTypes.assertThat(scenarioContext.response().asString()).isEqualTo(expectedMessage);
+    AssertionsForClassTypes.assertThat(scenarioContext.response().asString())
+        .isEqualTo(expectedMessage);
   }
 
   @Then("^(?:I get )response body that has field ([a-zA-Z]+) with generated UUID$")
   public void i_get_response_body_with_generated_uuid(String fieldName) {
     scenarioContext.response().then()
         .body(fieldName, responseBody -> notNullValue())
-        .body(fieldName, responseBody -> hasToString(responseBody.jsonPath().getUUID(fieldName).toString()))
+        .body(fieldName,
+            responseBody -> hasToString(responseBody.jsonPath().getUUID(fieldName).toString()))
         .log().all();
   }
 }
